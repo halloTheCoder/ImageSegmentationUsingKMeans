@@ -3,7 +3,7 @@
 Image segmentation using KMeans
 
 ## Run 
-`python Image_Segmentation_using_kmeans.py --k 3 --input_file input/burma.jpg`
+`python Image_Segmentation_using_kmeans.py --k 10 --input_file input/burma.jpg`
 
 - **k** : It is the required no of clusters to be formed. Default is 3. Higher the no, more is the time required for each iteration and thus for convergence.
 
