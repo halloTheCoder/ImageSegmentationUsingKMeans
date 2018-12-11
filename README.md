@@ -14,4 +14,4 @@ NOTE ::
 - Images are not being resized so will by default take more time for higher resolution images.
 
 ## RESULTS
-![Segmentation Output](ouput/seg.gif)
+![](seg.gif)
