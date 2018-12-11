@@ -14,5 +14,6 @@ NOTE ::
 - Images are automatically being resized to reduce the time taken.
 
 ## RESULTS
-March comes in like a lion Image
-![Image](input/march-comes-in-like-a-lion-wallpapers.jpg) ![Segmentation Output](ouput/segmentation.gif)
+March comes in like a lion Image <br>
+<img src="input/march-comes-in-like-a-lion-wallpapers.jpg" alt="drawing" width="300"/>
+<img src="output/segmentation.gif" alt="drawing"/>
