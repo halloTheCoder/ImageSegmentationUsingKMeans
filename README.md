@@ -11,7 +11,8 @@ Image segmentation using KMeans
 
 NOTE :: 
 - Output images and gif will be created in output folder.
-- Images are not being resized so will by default take more time for higher resolution images.
+- Images are automatically being resized to reduce the time taken.
 
 ## RESULTS
-![Segmentation Output](ouput/seg.gif)
+March comes in like a lion Image
+![Image](input/march-comes-in-like-a-lion-wallpapers.jpg) ![Segmentation Output](ouput/segmentation.gif)

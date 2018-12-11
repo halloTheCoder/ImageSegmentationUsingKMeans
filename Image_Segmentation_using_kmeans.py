@@ -22,12 +22,25 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--k', dest = 'k', help = 'no of clusters to be formed', default = 3, type = int)
     parser.add_argument('--input_file', dest = 'input_file', help = 'input file for segmentation', type = str)
-    
+
     args = parser.parse_args()
     return args
 
-def get_vectors(input_file):
+def resize(input_file, output_folder):
     img = Image.open(input_file)
+    basewidth = 300
+    wpercent = (basewidth / float(img.size[0]))
+    hsize = int((float(img.size[1]) * float(wpercent)))
+    img = img.resize((basewidth, hsize), Image.ANTIALIAS)
+    img.save(os.path.join(output_folder, 'output.jpg'))
+    
+    img = Image.open(os.path.join(output_folder, 'output.jpg'))
+
+    return img
+
+def get_vectors(input_file, output_folder):
+    img = resize(input_file, output_folder)    
+
     img_arr = np.asarray(img)
     
     img_height, img_width = img_arr.shape[: 2]
@@ -116,9 +129,9 @@ if __name__ == '__main__':
     output_folder = 'output'
     os.makedirs(output_folder, exist_ok = True)
     
-    copy2(input_file, os.path.join(output_folder, 'output.jpg'))
+    # copy2(input_file, os.path.join(output_folder, 'output.jpg'))
 
-    img_arr, data_vector_scaled, pixel_clusters =  get_vectors(args.input_file)
+    img_arr, data_vector_scaled, pixel_clusters =  get_vectors(args.input_file, output_folder)
     centers, pixel_clusters = get_clusters(img_arr, k, data_vector_scaled, pixel_clusters, output_folder)
     
-    os.system('convert -delay 100 -loop 0 output/*.jpg output/segmentation.gif')
+    os.system('convert -delay 30 -loop 0 output/*.jpg output/segmentation.gif')
